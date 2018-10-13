@@ -1,0 +1,15 @@
+.menuCard {
+  max-width: 350px;
+}
+
+.menuImage {
+  height: 200px;
+}
+
+.allergen:not(:last-child) {
+  margin-right: 5px;
+}
+
+.isSelected {
+  border: solid #2196f3;
+}
