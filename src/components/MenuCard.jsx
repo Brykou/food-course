@@ -16,7 +16,7 @@ class MenuCard extends React.Component {
     title: PropTypes.string.isRequired,
     image: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
-    allergens: PropTypes.arrayOf(PropTypes.string).isRequired,
+    allery: PropTypes.arrayOf(PropTypes.string).isRequired,
     spiceLevel: PropTypes.number.isRequired,
     isSelected: PropTypes.bool.isRequired,
     onSelect: PropTypes.func.isRequired,
@@ -29,7 +29,7 @@ class MenuCard extends React.Component {
       title,
       image,
       description,
-      allergens,
+      allery,
       spiceLevel,
       isSelected,
       onSelect,
@@ -60,7 +60,7 @@ class MenuCard extends React.Component {
             <Typography gutterBottom component="p">
               {description}
             </Typography>
-            {allergens.map((allergen, index) => (
+            {allery.map((allergen, index) => (
               <Chip key={index} label={allergen} className="allergen" />
             ))}
           </CardContent>

@@ -1,5 +1,6 @@
-.menuCard {
-  max-width: 350px;
+.menuCard,
+.MuiButtonBase-root-32 {
+  width: 100%;
 }
 
 .menuImage {

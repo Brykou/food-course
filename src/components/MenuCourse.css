@@ -1,0 +1,16 @@
+.menuCourse {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  width: 100%;
+}
+
+.menuCard {
+  width: calc((100% / 3) - 20px);
+  margin-bottom: 20px;
+}
+
+.menuCard:nth-child(3n-1),
+.menuCard:nth-child(3n-2) {
+  margin-right: 30px;
+}
