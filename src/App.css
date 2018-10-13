@@ -4,3 +4,8 @@
   margin: auto;
   padding: 20px;
 }
+
+button.previousButton {
+  display: inline-block;
+  margin-right: 20px;
+}

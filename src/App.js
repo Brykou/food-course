@@ -1,5 +1,7 @@
 import React from "react";
 import MenuCourse from "./containers/MenuCourse";
+import Breadcrumb from "./containers/Breadcrumb";
+import Button from "@material-ui/core/Button";
 import "./App.css";
 
 class App extends React.Component {
@@ -8,8 +10,26 @@ class App extends React.Component {
 
     return (
       <div className="app">
+        <Breadcrumb />
         <MenuCourse />
-        <button onClick={() => onClick(currentCourse + 1)}>Next course</button>
+        <Button
+          size="large"
+          variant="contained"
+          color="primary"
+          onClick={() => onClick(currentCourse - 1)}
+          disabled={currentCourse === 0}
+          className="previousButton"
+        >
+          Previous
+        </Button>
+        <Button
+          size="large"
+          variant="contained"
+          color="primary"
+          onClick={() => onClick(currentCourse + 1)}
+        >
+          Next
+        </Button>
       </div>
     );
   }

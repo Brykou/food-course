@@ -1,5 +1,5 @@
 .menuCard,
-.MuiButtonBase-root-32 {
+.menuCard > button {
   width: 100%;
 }
 
