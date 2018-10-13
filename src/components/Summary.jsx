@@ -36,15 +36,15 @@ class Summary extends React.Component {
         ))}
         <List>
           {orderList.map(order => (
-            <ListItem key={order.id} dense>
+            <ListItem key={order.id} dense divider>
               <Avatar src={order.image} />
               <ListItemText primary={order.title} />
-              <ListItemIcon>
-                {[...Array(order.spiceLevel).keys()].map(index => (
-                  <HotIcon key={index} />
-                ))}
-                <HotIcon />
-              </ListItemIcon>
+
+              {[...Array(order.spiceLevel).keys()].map(index => (
+                <ListItemIcon key={index}>
+                  <HotIcon />
+                </ListItemIcon>
+              ))}
             </ListItem>
           ))}
         </List>

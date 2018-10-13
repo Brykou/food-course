@@ -6,7 +6,7 @@ const mapStateToProps = state => ({
   numberOfCourse: state.numberOfCourse,
   currentCourse: state.currentCourse,
   isFinished: state.isFinished,
-  selectedDishies: state.selectedDishies
+  selectedDishes: state.selectedDishes
 });
 
 const mapDispatchToProps = dispatch => ({

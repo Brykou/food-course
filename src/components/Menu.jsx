@@ -7,7 +7,7 @@ class Menu extends React.PureComponent {
   static propTypes = {
     numberOfCourse: PropTypes.number.isRequired,
     currentCourse: PropTypes.number.isRequired,
-    selectedDishies: PropTypes.array.isRequired,
+    selectedDishes: PropTypes.array.isRequired,
     updateCourse: PropTypes.func.isRequired,
     validateOrder: PropTypes.func.isRequired
   };
@@ -16,7 +16,7 @@ class Menu extends React.PureComponent {
     const {
       numberOfCourse,
       currentCourse,
-      selectedDishies,
+      selectedDishes,
       updateCourse,
       validateOrder
     } = this.props;
@@ -47,7 +47,7 @@ class Menu extends React.PureComponent {
             size="large"
             variant="contained"
             color="primary"
-            disabled={selectedDishies.length === 0}
+            disabled={selectedDishes.length === 0}
             onClick={validateOrder}
           >
             Validate

@@ -2,9 +2,7 @@ import { connect } from "react-redux";
 import Summary from "../components/Summary";
 
 const mapStateToProps = state => ({
-  orderList: state.dishes.filter(dish =>
-    state.selectedDishies.includes(dish.id)
-  )
+  orderList: state.dishes.filter(dish => state.selectedDishes.includes(dish.id))
 });
 
 export default connect(

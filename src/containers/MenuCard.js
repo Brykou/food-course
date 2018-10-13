@@ -3,7 +3,7 @@ import { selectFood } from "../actions";
 import MenuCard from "../components/MenuCard";
 
 const mapStateToProps = (state, ownProps) => ({
-  isSelected: state.selectedDishies.includes(ownProps.id)
+  isSelected: state.selectedDishes.includes(ownProps.id)
 });
 
 const mapDispatchToProps = dispatch => ({

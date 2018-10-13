@@ -3,7 +3,7 @@ import getData from "../data";
 
 const initialState = {
   dishes: getData(),
-  selectedDishies: [],
+  selectedDishes: [],
   numberOfCourse: 6,
   currentCourse: 0,
   isFinished: false
@@ -13,9 +13,9 @@ export default (state = initialState, action) => {
   switch (action.type) {
     case SELECT_FOOD:
       return Object.assign({}, state, {
-        selectedDishies: state.selectedDishies.includes(action.payload)
-          ? state.selectedDishies.filter(id => id !== action.payload)
-          : state.selectedDishies.concat(action.payload)
+        selectedDishes: state.selectedDishes.includes(action.payload)
+          ? state.selectedDishes.filter(id => id !== action.payload)
+          : state.selectedDishes.concat(action.payload)
       });
     case UPDATE_CURRENT_COURSE:
       return Object.assign({}, state, {
