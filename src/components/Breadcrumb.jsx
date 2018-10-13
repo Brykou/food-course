@@ -9,20 +9,35 @@ class Breadcrumb extends React.Component {
   static propTypes = {
     numberOfCourse: PropTypes.number.isRequired,
     currentCourse: PropTypes.number.isRequired,
-    onClick: PropTypes.func.isRequired
+    isFinished: PropTypes.bool.isRequired,
+    updateCourse: PropTypes.func.isRequired,
+    validateOrder: PropTypes.func.isRequired
   };
 
   render() {
-    const { numberOfCourse, currentCourse, onClick } = this.props;
+    const {
+      numberOfCourse,
+      currentCourse,
+      isFinished,
+      updateCourse,
+      validateOrder
+    } = this.props;
     return (
-      <Stepper nonLinear activeStep={currentCourse} className="breadcrumb">
+      <Stepper
+        nonLinear
+        activeStep={isFinished ? numberOfCourse : currentCourse}
+        className="breadcrumb"
+      >
         {[...Array(numberOfCourse).keys()].map(key => (
           <Step key={key}>
-            <StepButton onClick={() => onClick(key)}>
-              {`Course number ${key + 1}`}
+            <StepButton disabled={isFinished} onClick={() => updateCourse(key)}>
+              {`Course ${key + 1}`}
             </StepButton>
           </Step>
         ))}
+        <Step>
+          <StepButton onClick={validateOrder}>{`Summary`}</StepButton>
+        </Step>
       </Stepper>
     );
   }

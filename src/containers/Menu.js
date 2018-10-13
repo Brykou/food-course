@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import { updateCourse, validateOrder } from "../actions";
-import Breadcrumb from "../components/Breadcrumb";
+import Menu from "../components/Menu";
 
 const mapStateToProps = state => ({
   numberOfCourse: state.numberOfCourse,
@@ -16,4 +16,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(Breadcrumb);
+)(Menu);

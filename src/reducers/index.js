@@ -1,11 +1,12 @@
-import { SELECT_FOOD, UPDATE_CURRENT_COURSE } from "../actions";
+import { SELECT_FOOD, UPDATE_CURRENT_COURSE, VALIDATE_ORDER } from "../actions";
 import getData from "../data";
 
 const initialState = {
   dishes: getData(),
   selectedDishies: [],
   numberOfCourse: 6,
-  currentCourse: 0
+  currentCourse: 0,
+  isFinished: false
 };
 
 export default (state = initialState, action) => {
@@ -19,6 +20,10 @@ export default (state = initialState, action) => {
     case UPDATE_CURRENT_COURSE:
       return Object.assign({}, state, {
         currentCourse: action.payload
+      });
+    case VALIDATE_ORDER:
+      return Object.assign({}, state, {
+        isFinished: true
       });
     default:
       return state;
