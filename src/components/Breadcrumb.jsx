@@ -54,7 +54,9 @@ class Breadcrumb extends React.Component {
           <StepButton
             disabled={selectedDishies.length === 0 || isFinished}
             onClick={validateOrder}
-          >{`Summary`}</StepButton>
+          >
+            {`Summary`}
+          </StepButton>
         </Step>
       </Stepper>
     );

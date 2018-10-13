@@ -7,7 +7,6 @@ import HotIcon from "@material-ui/icons/Whatshot";
 import ListItemText from "@material-ui/core/ListItemText";
 import Chip from "@material-ui/core/Chip";
 import Avatar from "@material-ui/core/Avatar";
-import "./Summary.css";
 
 class Summary extends React.Component {
   static propTypes = {
@@ -30,14 +29,14 @@ class Summary extends React.Component {
     });
 
     return (
-      <React.Fragment>
+      <div>
         <h1> Here is your order</h1>
         {allergens.map(allergen => (
           <Chip key={allergen} label={allergen} className="allergen" />
         ))}
         <List>
           {orderList.map(order => (
-            <ListItem key={order.id} dense button>
+            <ListItem key={order.id} dense>
               <Avatar src={order.image} />
               <ListItemText primary={order.title} />
               <ListItemIcon>
@@ -49,7 +48,7 @@ class Summary extends React.Component {
             </ListItem>
           ))}
         </List>
-      </React.Fragment>
+      </div>
     );
   }
 }
