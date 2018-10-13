@@ -7,7 +7,7 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 import Chip from "@material-ui/core/Chip";
 import HotIcon from "@material-ui/icons/Whatshot";
-import classNames from "classnames";
+import CheckCircle from "@material-ui/icons/CheckCircle";
 import "./MenuCard.css";
 
 class MenuCard extends React.Component {
@@ -34,12 +34,7 @@ class MenuCard extends React.Component {
       onSelect
     } = this.props;
     return (
-      <Card
-        className={classNames("menuCard", {
-          isSelected: isSelected
-        })}
-        onClick={() => onSelect(id)}
-      >
+      <Card className="menuCard" onClick={() => onSelect(id)}>
         <CardActionArea>
           <CardMedia
             image={image}
@@ -63,6 +58,11 @@ class MenuCard extends React.Component {
             ))}
           </CardContent>
         </CardActionArea>
+        {!isSelected ? null : (
+          <div className="overlay">
+            <CheckCircle className="checkIcon" />
+          </div>
+        )}
       </Card>
     );
   }
