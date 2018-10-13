@@ -5,6 +5,7 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import HotIcon from "@material-ui/icons/Whatshot";
 import ListItemText from "@material-ui/core/ListItemText";
+import Chip from "@material-ui/core/Chip";
 import Avatar from "@material-ui/core/Avatar";
 import "./Summary.css";
 
@@ -15,9 +16,21 @@ class Summary extends React.Component {
 
   render() {
     const { orderList } = this.props;
+    const allergens = [];
+    orderList.forEach(order => {
+      order.allery.forEach(allergen => {
+        if (!allergens.includes(allergen)) {
+          allergens.push(allergen);
+        }
+      });
+    });
+
     return (
       <React.Fragment>
         <h1> Here is your order</h1>
+        {allergens.map(allergen => (
+          <Chip key={allergen} label={allergen} className="allergen" />
+        ))}
         <List>
           {orderList.map(order => (
             <ListItem key={order.id} dense button>
