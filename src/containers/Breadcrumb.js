@@ -5,7 +5,8 @@ import Breadcrumb from "../components/Breadcrumb";
 const mapStateToProps = state => ({
   numberOfCourse: state.numberOfCourse,
   currentCourse: state.currentCourse,
-  isFinished: state.isFinished
+  isFinished: state.isFinished,
+  selectedDishies: state.selectedDishies
 });
 
 const mapDispatchToProps = dispatch => ({

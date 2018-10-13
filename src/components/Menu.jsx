@@ -3,10 +3,11 @@ import PropTypes from "prop-types";
 import Button from "@material-ui/core/Button";
 import MenuCourse from "../containers/MenuCourse";
 
-class Menu extends React.Component {
+class Menu extends React.PureComponent {
   static propTypes = {
     numberOfCourse: PropTypes.number.isRequired,
     currentCourse: PropTypes.number.isRequired,
+    selectedDishies: PropTypes.array.isRequired,
     updateCourse: PropTypes.func.isRequired,
     validateOrder: PropTypes.func.isRequired
   };
@@ -15,6 +16,7 @@ class Menu extends React.Component {
     const {
       numberOfCourse,
       currentCourse,
+      selectedDishies,
       updateCourse,
       validateOrder
     } = this.props;
@@ -45,6 +47,7 @@ class Menu extends React.Component {
             size="large"
             variant="contained"
             color="primary"
+            disabled={selectedDishies.length === 0}
             onClick={validateOrder}
           >
             Validate

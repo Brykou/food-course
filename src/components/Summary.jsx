@@ -14,6 +14,10 @@ class Summary extends React.Component {
     orderList: PropTypes.array.isRequired
   };
 
+  shouldComponentUpdate() {
+    return false;
+  }
+
   render() {
     const { orderList } = this.props;
     const allergens = [];

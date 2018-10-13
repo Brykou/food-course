@@ -9,16 +9,31 @@ class Breadcrumb extends React.Component {
   static propTypes = {
     numberOfCourse: PropTypes.number.isRequired,
     currentCourse: PropTypes.number.isRequired,
+    selectedDishies: PropTypes.array.isRequired,
     isFinished: PropTypes.bool.isRequired,
     updateCourse: PropTypes.func.isRequired,
     validateOrder: PropTypes.func.isRequired
   };
+
+  shouldComponentUpdate(nextProps) {
+    // Abort re render when user select or unselect dishes on the same page
+    if (
+      nextProps.selectedDishies.length > 0 &&
+      this.props.selectedDishies.length > 0 &&
+      nextProps.currentCourse === this.props.currentCourse &&
+      !nextProps.isFinished
+    ) {
+      return false;
+    }
+    return true;
+  }
 
   render() {
     const {
       numberOfCourse,
       currentCourse,
       isFinished,
+      selectedDishies,
       updateCourse,
       validateOrder
     } = this.props;
@@ -36,7 +51,10 @@ class Breadcrumb extends React.Component {
           </Step>
         ))}
         <Step>
-          <StepButton onClick={validateOrder}>{`Summary`}</StepButton>
+          <StepButton
+            disabled={selectedDishies.length === 0 || isFinished}
+            onClick={validateOrder}
+          >{`Summary`}</StepButton>
         </Step>
       </Stepper>
     );

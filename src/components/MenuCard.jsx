@@ -36,11 +36,7 @@ class MenuCard extends React.Component {
     return (
       <Card className="menuCard" onClick={() => onSelect(id)}>
         <CardActionArea>
-          <CardMedia
-            image={image}
-            title="Contemplative Reptile"
-            className="menuImage"
-          />
+          <CardMedia image={image} title={title} className="menuImage" />
           <CardContent>
             <div>
               {[...Array(spiceLevel).keys()].map(index => (
