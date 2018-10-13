@@ -19,8 +19,7 @@ class MenuCard extends React.Component {
     allery: PropTypes.arrayOf(PropTypes.string).isRequired,
     spiceLevel: PropTypes.number.isRequired,
     isSelected: PropTypes.bool.isRequired,
-    onSelect: PropTypes.func.isRequired,
-    className: PropTypes.string
+    onSelect: PropTypes.func.isRequired
   };
 
   render() {
@@ -32,12 +31,11 @@ class MenuCard extends React.Component {
       allery,
       spiceLevel,
       isSelected,
-      onSelect,
-      className
+      onSelect
     } = this.props;
     return (
       <Card
-        className={classNames("menuCard", className, {
+        className={classNames("menuCard", {
           isSelected: isSelected
         })}
         onClick={() => onSelect(id)}

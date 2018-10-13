@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import MenuCard from "./MenuCard";
+import MenuCard from "../containers/MenuCard";
 import "./MenuCourse.css";
 
 class MenuCourse extends React.Component {
@@ -12,19 +12,17 @@ class MenuCourse extends React.Component {
         image: PropTypes.string.isRequired,
         description: PropTypes.string.isRequired,
         allery: PropTypes.arrayOf(PropTypes.string).isRequired,
-        spiceLevel: PropTypes.number.isRequired,
-        isSelected: PropTypes.bool.isRequired
+        spiceLevel: PropTypes.number.isRequired
       })
-    ).isRequired,
-    onSelect: PropTypes.func.isRequired
+    ).isRequired
   };
 
   render() {
-    const { dishes, onSelect } = this.props;
+    const { dishes } = this.props;
     return (
       <div className="menuCourse">
         {dishes.map((dish, index) => (
-          <MenuCard key={index} {...dish} onSelect={onSelect} />
+          <MenuCard key={index} {...dish} />
         ))}
       </div>
     );
